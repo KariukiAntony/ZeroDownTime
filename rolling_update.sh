@@ -2,11 +2,13 @@
 
 : " Configurations "
 
-# backend
+# server
 BACKEND_SERVICE="backend"
 BACKEND_HEALTH_URL="/healthcheck"
 BACKEND_PORT="8000"
 BACKEND_REPLICAS="2"
+
+# client
 
 # docker
 COMPOSE_FILE="docker-compose.yaml"

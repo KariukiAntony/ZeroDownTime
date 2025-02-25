@@ -1,0 +1,35 @@
+services:
+  server:
+    build: ./server
+    restart: always
+    deploy:
+      mode: Replicated
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    networks:
+      - zero_dt
+  frontend:
+    build: ./client
+    restart: always
+    depends_on:
+      - server
+    networks:
+      - zero_dt
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - client
+    networks:
+      - zero_dt
+
+networks:
+  zero_dt:
+    driver: bridge
