@@ -11,7 +11,7 @@ services:
         max_attempts: 3
     networks:
       - zero_dt
-  frontend:
+  client:
     build: ./client
     restart: always
     depends_on:

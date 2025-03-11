@@ -18,7 +18,8 @@ export default function App() {
   const [apiData, setApiData] = useState<ApiData | null>(null);
   const frontendVersion = "v1.0.1";
 
-  const baseUrl = `http://164.92.165.41/api`;
+  const baseUrl = `http://localhost/api`;
+  // const baseUrl = `http://164.92.165.41/api`;
 
   useEffect(() => {
     // Fetch users from backend
